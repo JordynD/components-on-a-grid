@@ -22,17 +22,22 @@ header {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1rem;
-  margin: 1rem;
+  grid-template-areas:
+    "banner banner"
+    "col1  col2";
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
   background-color: #f2f1ed;
 }
 
 nav ul {
   color: #fff;
   display: flex;
-  justify-content: space-around;
-  font-family: "Patua One", sans-serif;
+  justify-content: end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
@@ -43,6 +48,7 @@ h2 {
 header > img {
   grid-column: 1/-1;
   grid-row: 1;
+  grid-area: banner;
 }
 
 header > .logo {
@@ -51,6 +57,8 @@ header > .logo {
   z-index: 1;
   width: 14rem;
   align-self: end;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 main > figure {
@@ -59,4 +67,31 @@ main > figure {
 
 main {
   display: contents;
+}
+
+nav {
+  grid-column: 2 / -1;
+  grid-row: 1;
+}
+
+nav a {
+  color: #fff;
+  font-family: "Patua One", sans-serif;
+  font-size: 2rem;
+}
+
+nav li {
+  padding: 1rem;
+}
+
+figure:nth-of-type(1) {
+  grid-area: col1;
+}
+
+figure:nth-of-type(2) {
+  grid-area: col2;
+}
+
+figure {
+  margin: 0;
 }
